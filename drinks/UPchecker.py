@@ -13,8 +13,8 @@ def reset_password(u, password):
     return "Password has been changed successfully"
 
 
-user_n = 'paynedestinne@gmail.com'
-passWord = 'DesMUGE123'
+user_n = 'email'
+passWord = 'pas'
 
 
 def password_reset():
