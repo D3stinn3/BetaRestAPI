@@ -36,4 +36,5 @@ def drink_list(request):
     except SystemError as e:
         return 'Error: {0}'.format(e)
 
+
 """Creating the api endpoints"""
