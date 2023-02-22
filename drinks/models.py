@@ -18,4 +18,4 @@ class Drink(models.Model):
             lines = drinkDetails.read()
             print(lines)
 
-        return jina, scribe
+        return f"{jina}, {scribe}"
