@@ -11,7 +11,7 @@ from rest_framework import status
 
 
 @api_view(['GET', 'POST'])
-def drink_list(request):
+def drink_list(request, format=None):
     # fetching the drinks
     # drinks = Drink.objects.all()
 
@@ -38,20 +38,18 @@ def drink_list(request):
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def drink_detail(request, id):
+def drink_detail(request, id, format=None):
     try:
         drink = Drink.objects.get(pk=id)
     except Drink.DoesNotExist as e:
         print(f'Error: {e}')
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    try:
-        if request.method == 'GET':
-            serializer = DrinkSerializer(drink)
-            return Response(serializer.data)
+    if request.method == 'GET':
+        serializer = DrinkSerializer(drink)
+        return Response(serializer.data)
 
-    except SystemError as t:
-        return f'{t}'
+
 
 
 """Creating the api endpoints"""
